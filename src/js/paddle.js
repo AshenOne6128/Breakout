@@ -6,7 +6,7 @@ class paddle {
         this.sy = 1;
         this.w = 65;
         this.h = 10;
-        this.resistance = 0.7;
+        this.resistance = 0.75;
 
 
     }
@@ -14,14 +14,17 @@ class paddle {
     update(dt) {
 
         if (KeyLeft == true) {
-            this.sx -= 1;
-
-        }
+            this.sx -= 1.5;
+            if (this.sx < -12) {
+                this.sx = -12;
+            }
+            }
         else if (KeyRight == true) {
-            this.sx += 1
-
-
-        }
+            this.sx += 1.5
+            if (this.sx > 12) {
+                this.sx = 12;
+            }
+            }
         else {
             this.sx = this.sx * this.resistance;
         }
@@ -32,12 +35,6 @@ class paddle {
         else if (this.x + this.w > canvas.width) {
             this.sx = 0;
             this.x = canvas.width - this.w;
-        }
-        else {
-            
-        }
-        if (Math.abs(this.sx > 5)) {
-            this.sx = 5;
         }
         this.x = this.x + this.sx
     }
