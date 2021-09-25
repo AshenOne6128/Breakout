@@ -6,7 +6,7 @@ class paddle {
         this.sy = 1;
         this.w = 65;
         this.h = 10;
-        this.resistance = 0.75;
+        this.resistance = 0.6;
 
 
     }
@@ -14,13 +14,13 @@ class paddle {
     update(dt) {
 
         if (KeyLeft == true) {
-            this.sx -= 1.5;
+            this.sx -= 2;
             if (this.sx < -12) {
                 this.sx = -12;
             }
             }
         else if (KeyRight == true) {
-            this.sx += 1.5
+            this.sx += 2
             if (this.sx > 12) {
                 this.sx = 12;
             }

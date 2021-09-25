@@ -104,6 +104,11 @@ function update(dt) {
         theBall.update();
         screenLimits();
         thePaddle.update(dt);
+        if (collision(thePaddle.x, thePaddle.y, thePaddle.w, thePaddle.h, theBall.x, theBall.y, theBall.r)) {
+            theBall.y = thePaddle.y - theBall.r;
+            theBall.sy = -theBall.sy;
+        }
+
 }
 
 function draw(pCtx) {

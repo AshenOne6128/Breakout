@@ -4,6 +4,7 @@ class Ball {
         this.y = 0;
         this.sx = pSpeed;
         this.sy = pSpeed;
+        this.r = 5;
         this.ballSpeed = 0;
     }
 
