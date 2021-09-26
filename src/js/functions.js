@@ -17,14 +17,29 @@ function screenLimits() {
         theBall.sy = 0-theBall.sy;
     }    
 }
-function collision(pX, pY, pw, ph, pBallX, pBallY, pBallR) {
-    if (pBallY + pBallR <  pY) {
+function collision(pPaddleX, pPaddleY, pPaddleW, pPaddleH, pBallX, pBallY, pBallR) {
+/*     if (pBallY + pBallR <  pPaddleY) {
         return false;
     }
-    else if (pBallY - pBallR > pY + ph) {
+    else if (pBallY - pBallR > pPaddleY + pPaddleH) {
         return false;
     }
-    else if(pBallX >pX + pBallR && pBallX < (pX + pw - pBallR)) {
+    else if(pBallX > pPaddleX + pBallR && pBallX < (pPaddleX + pPaddleW - pBallR)) {
         return true;
     }
+ */
+    //Check if ball is outside the box
+    if (pBallY - pBallR > pPaddleY + pPaddleH) {
+        return false;
+    }
+    if (pBallY + pBallR < pPaddleY) {
+        return false;
+    }
+    if (pBallX + pBallR < pPaddleX) {
+        return false;
+    }
+    if (pBallX - pBallR > pPaddleX + pPaddleW) {
+        return false;
+    }
+    return true;
 }
